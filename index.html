@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIMEWATCH - Watch Anime Online</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <div class="brand">
+                <h1>ANIME<span>WATCH</span></h1>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active" data-page="home">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="#series" class="nav-link" data-page="series">
+                    <i class="fas fa-tv"></i> Series
+                </a>
+                <a href="#movies" class="nav-link" data-page="movies">
+                    <i class="fas fa-film"></i> Movies
+                </a>
+                <a href="#history" class="nav-link" data-page="history">
+                    <i class="fas fa-history"></i> History
+                </a>
+                <a href="#developer" class="nav-link" data-page="developer">
+                    <i class="fas fa-code"></i> Developer
+                </a>
+            </nav>
+            <div class="profile-section">
+                <button class="profile-btn" id="profileBtn">
+                    <i class="fas fa-user"></i>
+                    <span id="profileText">Login</span>
+                </button>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="dropdown-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <div class="page" id="page-home">
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-left">
+                    <h2 class="hero-title">Welcome to <span>ANIMEWATCH</span></h2>
+                    <p class="hero-subtitle">Watch the best anime series and movies online</p>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search anime..." id="searchInput">
+                    </div>
+                    <div class="trending-tags">
+                        <span class="tag">Action</span>
+                        <span class="tag">Romance</span>
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Comedy</span>
+                        <span class="tag">Thriller</span>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="featured-card" id="featuredCard">
+                        <img src="" alt="Featured Anime" id="featuredImage">
+                        <div class="featured-overlay">
+                            <h3 id="featuredTitle"></h3>
+                            <div class="featured-genres" id="featuredGenres"></div>
+                            <button class="btn-watch" id="featuredWatchBtn">
+                                <i class="fas fa-play"></i> Watch Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="slideshow-dots" id="slideshowDots"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2>Latest Episodes</h2>
+            </div>
+            <div class="anime-carousel" id="latestEpisodes"></div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2>Popular Series</h2>
+            </div>
+            <div class="anime-carousel" id="popularSeries"></div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2>Top Movies</h2>
+            </div>
+            <div class="anime-carousel" id="topMovies"></div>
+        </section>
+    </div>
+
+    <!-- Watch Page -->
+    <div class="page" id="page-watch" style="display: none;">
+        <div class="watch-container">
+            <div class="video-section">
+                <div class="video-header">
+                    <h2 id="watchAnimeTitle">Anime Title</h2>
+                    <span id="watchEpisodeName">Episode 1</span>
+                </div>
+                <div class="video-player">
+                    <iframe id="videoIframe" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-controls">
+                    <div class="sub-dub-toggle">
+                        <button class="toggle-btn active" id="subBtn">SUB</button>
+                        <button class="toggle-btn" id="dubBtn">DUB</button>
+                    </div>
+                </div>
+            </div>
+            <div class="episodes-sidebar">
+                <h3>Episodes</h3>
+                <div class="episodes-list" id="episodesList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Page -->
+    <div class="page" id="page-login" style="display: none;">
+        <div class="login-container">
+            <div class="login-card">
+                <h2 class="login-title">Welcome to <span>ANIMEWATCH</span></h2>
+                <div class="form-toggle">
+                    <button class="toggle-btn active" id="showLoginBtn">Login</button>
+                    <button class="toggle-btn" id="showSignupBtn">Sign Up</button>
+                </div>
+
+                <!-- Login Form -->
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label>Username or Email</label>
+                        <input type="text" id="loginUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <div class="error-message" id="loginError"></div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+
+                <!-- Signup Form -->
+                <form class="auth-form" id="signupForm" style="display: none;">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="signupUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="signupEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="signupPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password" id="signupConfirmPassword" required>
+                    </div>
+                    <div class="error-message" id="signupError"></div>
+                    <button type="submit" class="btn-primary">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Movies Page -->
+    <div class="page" id="page-movies" style="display: none;">
+        <div class="page-container">
+            <h2 class="page-title">Movies</h2>
+            <div class="anime-grid" id="moviesGrid"></div>
+        </div>
+    </div>
+
+    <!-- Series Page -->
+    <div class="page" id="page-series" style="display: none;">
+        <div class="page-container">
+            <h2 class="page-title">Series</h2>
+            <div class="anime-grid" id="seriesGrid"></div>
+        </div>
+    </div>
+
+    <!-- History Page -->
+    <div class="page" id="page-history" style="display: none;">
+        <div class="page-container">
+            <h2 class="page-title">Watch History</h2>
+            <div class="anime-grid" id="historyGrid">
+                <p class="empty-message">No watch history yet. Start watching anime to see your history here!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Developer Page -->
+    <div class="page" id="page-developer" style="display: none;">
+        <div class="page-container">
+            <div class="developer-card">
+                <div class="developer-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h2>Hey there! I’m Raghav, the mind behind this site — a developer who mixes code and creativity like a
+                    perfect anime fusion. I build cool, fast, and responsive websites using HTML, CSS, and JavaScript,
+                    and I love giving them that unique anime touch.
+
+                    I created projects like AnimeWatch, where you can stream your favorite shows, and Wallpaper Hub, a
+                    spot for stunning PC and phone wallpapers.
+
+                    I’m always leveling up my skills, learning new tech, and designing web experiences that feel smooth,
+                    stylish, and full of anime energy.</h2>
+                <p>This anime streaming website was created as a demonstration of modern web development techniques.</p>
+                <div class="tech-stack">
+                    <h3>Technologies Used</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">SPA Architecture</span>
+                    </div>
+                </div>
+                <div class="features">
+                    <h3>Features</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Auto-rotating featured anime slideshow</li>
+                        <li><i class="fas fa-check"></i> Working authentication system</li>
+                        <li><i class="fas fa-check"></i> Clean video player interface</li>
+                        <li><i class="fas fa-check"></i> Protected routes</li>
+                        <li><i class="fas fa-check"></i> Responsive design</li>
+                        <li><i class="fas fa-check"></i> Sub/Dub toggle</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="auth.js"></script>
+    <script src="slideshow.js"></script>
+    <script src="player.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
