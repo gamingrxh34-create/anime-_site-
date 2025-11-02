@@ -8,10 +8,16 @@ const animeData = [
     cover: "https://cdn.noitatnemucod.net/thumbnail/300x400/100/debf027d032c6d40b91fab16b2ff9bd4.jpg",
     episodes: [
       {
-        id: 3301,
-        name: "Episode 1",
+        id: 1,
+        name: " To You, in 2000 Years: The Fall of Shiganshina, Part 1",
         sub: "https://drive.google.com/file/d/1MeFHZNXR5NSJkfEmcKlLjZe218nf_XBS/preview",
         dub: "https://drive.google.com/file/d/1k6DDWHYW7hLNZNCQW6bHtV2lftg_EUBC/preview"
+      },
+      {
+        id: 2,
+        name: "That Day: The Fall of Shiganshina, Part 2",
+        sub: "https://drive.google.com/file/d/1jukTL6KdNUlk7jUI85zv0qJSw-N5FsPe/preview",
+        dub: "https://drive.google.com/file/d/15VS3SCrCkFuVXwvb-2oxX8PQQgLcc4J6/preview"
       }
     ]
   },
